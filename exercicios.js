@@ -19,7 +19,12 @@
 // Crie 2 variáveis com números e mostre no console
 // o resultado da soma, subtração, multiplicação e divisão.
 // ------------------------------------------------------------
-
+let num1 = 10;
+let num2 = 5;
+console.log("Soma:", num1 + num2);
+console.log("Subtração:", num1 - num2);
+console.log("Multiplicação:", num1 * num2);
+console.log("Divisão:", num1 / num2);
 
 
 
@@ -29,8 +34,9 @@
 // Fórmula: F = C * 9/5 + 32
 // ------------------------------------------------------------
 
-
-
+let celsius = 25;
+let fahrenheit = celsius * 9/5 + 32;
+console.log("Temperatura em Fahrenheit:", fahrenheit);
 
 // EXERCÍCIO 3 - Par ou ímpar
 // Crie uma variável com um número.
@@ -39,8 +45,12 @@
 // Se numero % 2 === 0, é par.
 // ------------------------------------------------------------
 
-
-
+let numero = 7;
+if (numero % 2 === 0) {
+    console.log("O número é par.");
+} else {
+    console.log("O número é ímpar.");
+}
 
 // EXERCÍCIO 4 - Média de notas
 // Crie 3 variáveis com notas (de 0 a 10).
@@ -49,8 +59,16 @@
 // Se não, mostre "Reprovado".
 // ------------------------------------------------------------
 
-
-
+let nota1 = 8;
+let nota2 = 7;
+let nota3 = 9;
+let media = (nota1 + nota2 + nota3) / 3;
+console.log("Média:", media);
+if (media >= 7) {
+    console.log("Aprovado");
+} else {
+    console.log("Reprovado");
+}
 
 // ============================================================
 //  BLOCO 2 - CONDICIONAIS (if/else, switch)
@@ -63,8 +81,12 @@
 // Se não, mostre "Menor de idade".
 // ------------------------------------------------------------
 
-
-
+let idade = 20;
+if (idade >= 18) {
+    console.log("Maior de idade");
+} else {
+    console.log("Menor de idade");
+}
 
 // EXERCÍCIO 6 - Calculadora de IMC
 // Crie variáveis para peso (em kg) e altura (em metros).
@@ -76,8 +98,19 @@
 //   30 ou mais     = "Obesidade"
 // ------------------------------------------------------------
 
+let peso = 70;
+let altura = 1.75;
+let imc = peso / (altura * altura);
 
-
+if (imc < 18.5) {
+    console.log("Abaixo do peso");
+} else if (imc >= 18.5 && imc < 25) {
+    console.log("Peso normal");
+} else if (imc >= 25 && imc < 30) {
+    console.log("Sobrepeso");
+} else {
+    console.log("Obesidade");
+}
 
 // EXERCÍCIO 7 - Pedra, papel e tesoura
 // Crie uma variável com sua jogada ("pedra", "papel" ou "tesoura").
@@ -88,8 +121,24 @@
 // Compare as jogadas e mostre quem ganhou.
 // ------------------------------------------------------------
 
+let suaJogada = "pedra";
+let opcoes = ['pedra', 'papel', 'tesoura'];
+let computador = opcoes[Math.floor(Math.random() * 3)];
 
+console.log("Sua jogada:", suaJogada);
+console.log("Jogada do computador:", computador);
 
+if (suaJogada === computador) {
+    console.log("Empate!");
+} else if (
+    (suaJogada === "pedra" && computador === "tesoura") ||
+    (suaJogada === "papel" && computador === "pedra") ||
+    (suaJogada === "tesoura" && computador === "papel")
+) {
+    console.log("Você ganhou!");
+} else {
+    console.log("Você perdeu!");
+}
 
 // EXERCÍCIO 8 - Sistema de notas
 // Crie uma variável com uma nota de 0 a 10.
@@ -101,8 +150,19 @@
 //   2, 1, 0  = "F"
 // ------------------------------------------------------------
 
+let nota = 8;
 
-
+if (nota === 10 || nota === 9) {
+    console.log("Conceito: A");
+} else if (nota === 8 || nota === 7) {
+    console.log("Conceito: B");
+} else if (nota === 6 || nota === 5) {
+    console.log("Conceito: C");
+} else if (nota === 4 || nota === 3) {
+    console.log("Conceito: D");
+} else {
+    console.log("Conceito: F");
+}
 
 // ============================================================
 //  BLOCO 3 - LOOPS (for, while)
@@ -118,8 +178,9 @@
 //   ... até "5 x 10 = 50"
 // ------------------------------------------------------------
 
-
-
+for (let i = 1; i <= 10; i++) {
+    console.log(`${numero} x ${i} = ${numero * i}`);
+}
 
 // EXERCÍCIO 10 - Contagem regressiva
 // Use um for para contar de 10 até 0.
@@ -127,8 +188,10 @@
 // No final, mostre "Feliz Ano Novo!" (ou qualquer mensagem).
 // ------------------------------------------------------------
 
-
-
+for (let i = 10; i >= 0; i--) {
+    console.log(i);
+}
+console.log("Feliz Ano Novo!");
 
 // EXERCÍCIO 11 - Somar números
 // Crie uma variável N com um número qualquer.
@@ -137,8 +200,13 @@
 // Exemplo: se N = 5, resultado = 1+2+3+4+5 = 15
 // ------------------------------------------------------------
 
+let N = 5;
+let soma = 0;
 
-
+for (let i = 1; i <= N; i++) {
+    soma += i;
+}
+console.log("Soma dos números de 1 até", N, ":", soma);
 
 // EXERCÍCIO 12 - Adivinhe o número
 // O computador escolhe um número aleatório de 1 a 10:
@@ -149,8 +217,18 @@
 // Dica: use prompt() para pedir o palpite do usuário.
 // ------------------------------------------------------------
 
+let secreto = Math.floor(Math.random() * 10) + 1;
+let palpite;
 
-
+while (palpite !== secreto) {
+    palpite = parseInt(prompt("Adivinhe o número (1-10):"));
+    if (palpite > secreto) {
+        console.log("Maior");
+    } else if (palpite < secreto) {
+        console.log("Menor");
+    }
+}
+console.log("Parabéns! Acertou!");
 
 // ============================================================
 //  BLOCO 4 - FUNÇÕES
@@ -164,8 +242,11 @@
 // Exemplo: saudacao("Maria") retorna "Olá, Maria!"
 // ------------------------------------------------------------
 
+function saudacao(nome) {
+    return "Olá, " + nome + "!";
+}
 
-
+console.log(saudacao("Maria"));
 
 // EXERCÍCIO 14 - Número primo
 // Crie uma função chamada "ehPrimo" que recebe um número
@@ -175,8 +256,17 @@
 // algum divide o número sem resto (numero % i === 0).
 // ------------------------------------------------------------
 
-
-
+function ehPrimo(numero) {
+    if (numero <= 1) {
+        return false;
+    }
+    for (let i = 2; i < numero; i++) {
+        if (numero % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // EXERCÍCIO 15 - Inverter string
 // Crie uma função chamada "inverter" que recebe uma string
@@ -186,8 +276,9 @@
 // inverter, e join('') para voltar a ser string.
 // ------------------------------------------------------------
 
-
-
+function inverter(string) {
+    return string.split('').reverse().join('');
+}
 
 // EXERCÍCIO 16 - Contar vogais
 // Crie uma função chamada "contarVogais" que recebe uma
@@ -197,8 +288,17 @@
 // e verifique cada letra com um for.
 // ------------------------------------------------------------
 
-
-
+function contarVogais(palavra) {
+    let vogais = "aeiou";
+    let contador = 0;
+    palavra = palavra.toLowerCase();
+    for (let i = 0; i < palavra.length; i++) {
+        if (vogais.includes(palavra[i])) {
+            contador++;
+        }
+    }
+    return contador;
+}
 
 // ============================================================
 //  BLOCO 5 - ARRAYS
@@ -212,8 +312,15 @@
 // Remova o último item com pop() e mostre a lista novamente.
 // ------------------------------------------------------------
 
-
-
+let listaCompras = [];
+listaCompras.push("Maçã");
+listaCompras.push("Banana");
+listaCompras.push("Laranja");
+listaCompras.push("Uva");
+listaCompras.push("Pera");
+console.log("Lista de compras:", listaCompras);
+listaCompras.pop();
+console.log("Lista de compras após remover o último item:", listaCompras);
 
 // EXERCÍCIO 18 - Maior e menor
 // Crie um array com 8 números diferentes.
@@ -223,8 +330,11 @@
 // Ou tente fazer com um for (mais desafiador!).
 // ------------------------------------------------------------
 
-
-
+let numeros = [5, 2, 8, 1, 9, 3, 7, 4];
+let maior = Math.max(...numeros);
+let menor = Math.min(...numeros);
+console.log("Maior:", maior);
+console.log("Menor:", menor);
 
 // EXERCÍCIO 19 - Ordenar nomes
 // Crie um array com 6 nomes de pessoas.
@@ -233,8 +343,11 @@
 // Dica: use .sort() e .reverse()
 // ------------------------------------------------------------
 
-
-
+let nomes = ["Ana", "Carlos", "Beatriz", "David", "Elena", "Felipe"];
+nomes.sort();
+console.log("Nomes em ordem alfabética:", nomes);
+nomes.reverse();
+console.log("Nomes em ordem alfabética inversa:", nomes);
 
 // EXERCÍCIO 20 - Filtrar pares
 // Crie um array com os números de 1 a 20.
@@ -243,8 +356,10 @@
 // Dica: use .filter(function(numero) { return numero % 2 === 0 })
 // ------------------------------------------------------------
 
-
-
+let numerosPares = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].filter(function(numero) {
+    return numero % 2 === 0;
+});
+console.log("Números pares:", numerosPares);
 
 // ============================================================
 //  BLOCO 6 - DOM (Manipulação da página)
@@ -261,8 +376,21 @@
 // Dica: document.body.style.backgroundColor = 'red'
 // ------------------------------------------------------------
 
+const botaoVermelho = document.getElementById("vermelho");
+const botaoAzul = document.getElementById("azul");
+const botaoVerde = document.getElementById("verde");
 
+botaoVermelho.addEventListener("click", () => {
+    document.body.style.backgroundColor = "red";
+});
 
+botaoAzul.addEventListener("click", () => {
+    document.body.style.backgroundColor = "blue";
+});
+
+botaoVerde.addEventListener("click", () => {
+    document.body.style.backgroundColor = "green";
+});
 
 // EXERCÍCIO 22 - Contador
 // Crie no HTML: um <h1> com o número 0, e dois botões (+ e -).
@@ -272,8 +400,21 @@
 // e atualize o textContent do <h1> a cada clique.
 // ------------------------------------------------------------
 
+const contadorElement = document.getElementById("contador");
+const botaoMais = document.getElementById("mais");
+const botaoMenos = document.getElementById("menos");
 
+let contador = 0;
 
+botaoMais.addEventListener("click", () => {
+    contador++;
+    contadorElement.textContent = contador;
+});
+
+botaoMenos.addEventListener("click", () => {
+    contador--;
+    contadorElement.textContent = contador;
+});
 
 // EXERCÍCIO 23 - Mostrar e esconder
 // Crie no HTML: um botão "Mostrar/Esconder" e um <div> com
@@ -283,8 +424,12 @@
 // display: none
 // ------------------------------------------------------------
 
+const botaoMostrarEsconder = document.getElementById("mostrar-esconder");
+const divTexto = document.getElementById("texto");
 
-
+botaoMostrarEsconder.addEventListener("click", () => {
+    divTexto.classList.toggle("escondido");
+});
 
 // EXERCÍCIO 24 - Lista de tarefas
 // Esse exercício é a atividade principal!
@@ -304,8 +449,14 @@
 // Dica: use setInterval() para contar e clearInterval() para pausar.
 // ------------------------------------------------------------
 
+const cronometroElement = document.getElementById("cronometro");
+const botaoIniciar = document.getElementById("iniciar");
+const botaoPausar = document.getElementById("pausar");
+const botaoResetar = document.getElementById("resetar");
 
-
+let segundos = 0;
+let minutos = 0;
+let intervalo;
 
 // EXERCÍCIO 26 - Quiz de perguntas
 // Crie um quiz com 5 perguntas de múltipla escolha.
@@ -315,8 +466,33 @@
 //   { pergunta: "...", opcoes: ["a", "b", "c"], correta: 1 }
 // ------------------------------------------------------------
 
-
-
+const perguntas = [
+    {
+        pergunta: "Qual é a capital do Brasil?",
+        opcoes: ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"],
+        correta: 2
+    },
+    {
+        pergunta: "Qual é o maior planeta do sistema solar?",
+        opcoes: ["Vênus", "Marte", "Júpiter", "Saturno"],
+        correta: 2
+    },
+    {
+        pergunta: "Quanto é 2 + 2?",
+        opcoes: ["3", "4", "5", "6"],
+        correta: 1
+    },
+    {
+        pergunta: "Qual é a fórmula química da água?",
+        opcoes: ["H2O", "CO2", "NaCl", "O2"],
+        correta: 0
+    },
+    {
+        pergunta: "Quem escreveu 'Dom Casmurro'?",
+        opcoes: ["Machado de Assis", "José Saramago", "Carlos Drummond de Andrade", "Guimarães Rosa"],
+        correta: 0
+    }
+];
 
 // EXERCÍCIO 27 - Gerador de senha
 // Crie no HTML: um campo para o tamanho da senha,
@@ -327,7 +503,12 @@
 // Math.random() para escolher caracteres aleatórios.
 // ------------------------------------------------------------
 
-
+const campoTamanho = document.getElementById("tamanho");
+const checkboxMaiusculas = document.getElementById("maiusculas");
+const checkboxNumeros = document.getElementById("numeros");
+const checkboxSimbolos = document.getElementById("simbolos");
+const botaoGerar = document.getElementById("gerar");
+const resultado = document.getElementById("resultado");
 
 
 // EXERCÍCIO 28 - Galeria de imagens
@@ -337,4 +518,14 @@
 // Dica: mude o atributo src da <img> com JavaScript.
 // ------------------------------------------------------------
 
+const imgGaleria = document.getElementById("galeria");
+const botaoAnterior = document.getElementById("anterior");
+const botaoProximo = document.getElementById("proximo");
 
+const urlsImagens = [
+    "refor-o-javascript/img43.jpg",
+    "refor-o-javascript/download (2).jpg",
+    "refor-o-javascript/download (3).jpg"
+];
+
+let indiceAtual = 0;
